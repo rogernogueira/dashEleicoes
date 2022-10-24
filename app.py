@@ -1,4 +1,5 @@
 
+from turtle import ht
 from dash import Dash, html, dcc, Output, Input, State
 import pandas as pd
 from dash_extensions.javascript import assign, Namespace
@@ -98,23 +99,27 @@ def filter_candidates(df_votacao_canditado_func, candidato):
 app.layout = html.Div(children=[
     html.Div([  
         html.Div(
-                    [
-                        html.Div(
-                            [
-                                html.H3(
-                                    " Eleições 2022 ",
-                                    
-                                    className="display-4"
-                                ),
-                                html.H5(
-                                    "Primeiro Turno - Tocantins", className="display-6"
-                                ),
+                [
+                    html.Div(
+                        [
+                            html.H3(
+                                "Eleições 2022:",
                                 
-                            ]
-                        )
-                    ],
-                    className="container",
-                    id="title",
+                                className="display-7  p-2"
+                            ),
+                            html.H5(
+                                "Primeiro Turno - Tocantins   ", className="display-8  p-2"
+                            ),
+                           html.Div([
+                               html.A( [ html.Img(src="assets/comais.png")], href="http://www.comais.uft.edu.br/", target="_blank", ),
+                           ], className="ms-auto p-2"),
+                           
+                           
+                            ],className="navbar navbar-expand-lg bg-light align-self-end d-flex mb-3"
+                    )
+                ],
+                className="container-fluid",
+                id="title",
                 ),
             ],
             id="header",
@@ -167,7 +172,7 @@ app.layout = html.Div(children=[
                         html.Div(
                                 [
                                     html.Div(
-                                        [html.H5("Melhor Votação",className="card-title"),
+                                        [html.H5("Cidade com mais eleitores",className="card-title"),
                                         html.H6("cidade",id="melhor_cidade",className="card-subtitle mb-2 text-muted"),
                                         html.H6("0",id="qtd_votos_cidade"), ],
                                     ),
